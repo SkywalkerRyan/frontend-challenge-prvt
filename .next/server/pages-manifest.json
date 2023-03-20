@@ -1,0 +1,10 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/api/breeds/[breedid]": "pages/api/breeds/[breedid].js",
+  "/api/breeds": "pages/api/breeds.js",
+  "/": "pages/index.html",
+  "/api/cats/[catid]": "pages/api/cats/[catid].js",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
+}
