@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "react-query";
 
 import CatCardPanel from "../components/catCardPanel";
@@ -8,13 +9,15 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { UserData } from "@/types/global";
 
-const DB_API_URI = "http://localhost:3001";
+const DB_API_URI = "http://localhost:3001"; //	@todo centralize
 const inter = Inter({ subsets: ["latin"] });
 
 // Mock userID for testing.
-const userID = 42;
+const _userID = 42;
 
 export default function App() {
+	const [userID, setUserID] = useState<String | Number>(_userID);
+
 	const endpoint = `${DB_API_URI}/users/${userID}`;
 
 	const { isLoading, error, data } = useQuery(["userData", userID], (): Promise<UserData> => fetch(endpoint).then(res => res.json()));
@@ -24,6 +27,10 @@ export default function App() {
 	if (error && error instanceof Error) return <div>{"An error has occurred: " + error.message}</div>;
 
 	if (!data) return <div>No data</div>;
+
+	const ChangeUser = (usrID: String) => {
+		setUserID(usrID);
+	};
 
 	return (
 		<>
@@ -38,12 +45,12 @@ export default function App() {
 						<CatCardCreator />
 					</div>
 					<div className="styles.col styles.herd">
-						<div className={styles.description}>Linda's Herd</div>
+						<div className={styles.description}>{data.firstName}'s Herd</div>
 						<CatCardPanel herd={data.herd} />
 					</div>
 				</div>
 				<div className={styles.row}>
-					<DemoFooter />
+					<DemoFooter handleChange={val => ChangeUser(val)} />
 				</div>
 			</div>
 		</>

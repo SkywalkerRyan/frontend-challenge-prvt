@@ -1,4 +1,4 @@
-import React, { useState, FC, ReactElement } from "react";
+import React, { useState, FC, ReactElement, useEffect } from "react";
 
 import styles from "@/styles/CatCardCreator.module.css";
 
@@ -8,6 +8,10 @@ const RANDOM_CAT_URL = "https://api.thecatapi.com/v1/images/search";
 const CatCardCreator: FC = (): ReactElement => {
 	const [catName, setCatName] = useState("");
 	const [catImg, setCatImg] = useState("");
+
+	useEffect(() => {
+		loadRandomCat();
+	}, []);
 
 	const loadRandomCat = async () => {
 		try {
@@ -35,8 +39,10 @@ const CatCardCreator: FC = (): ReactElement => {
 		<div className={styles.creator}>
 			<input className={styles.catNameBox} type="text" value={catName} placeholder="Cat Name" onChange={e => setCatName(e.target.value)} />
 			<img src={catImg} alt={catName} className={styles.catImageBox} />
-			<button onClick={loadRandomCat}>Refresh</button>
-			<button onClick={saveCatToHerd}>Save</button>
+			<div className={styles.buttons}>
+				<button onClick={loadRandomCat}>Refresh</button>
+				<button onClick={saveCatToHerd}>Save</button>
+			</div>
 		</div>
 	);
 };

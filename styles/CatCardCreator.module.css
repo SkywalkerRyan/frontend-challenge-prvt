@@ -13,4 +13,9 @@
 .catImageBox {
 	height: 400px;
 	width: 500px;
+	margin: 40px;
+}
+
+.buttons {
+	margin: 20px;
 }
