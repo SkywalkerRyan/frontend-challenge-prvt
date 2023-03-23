@@ -1,0 +1,16 @@
+.creator {
+	margin: 40px;
+	background-color: white;
+	border-style: solid;
+	border-color: blue;
+	border-radius: 30px;
+}
+
+.catNameBox {
+	margin: 20px;
+}
+
+.catImageBox {
+	height: 400px;
+	width: 500px;
+}
