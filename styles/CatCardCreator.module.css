@@ -4,18 +4,26 @@
 	border-style: solid;
 	border-color: blue;
 	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
 }
 
 .catNameBox {
 	margin: 20px;
+	flex: 1;
+	height: 100px;
+	width: 200px;
 }
 
 .catImageBox {
 	height: 400px;
 	width: 500px;
 	margin: 40px;
+	flex: 1;
 }
 
 .buttons {
 	margin: 20px;
+	flex: 1;
+	justify-content: flex-end;
 }

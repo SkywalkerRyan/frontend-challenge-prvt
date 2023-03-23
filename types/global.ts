@@ -15,7 +15,3 @@ export interface CatCardProps {
 	width?: number;
 	height?: number;
 }
-
-export type DropDownProps = {
-	handleChange: (event: string) => void;
-};

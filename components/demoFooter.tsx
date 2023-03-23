@@ -1,11 +1,15 @@
 import React, { useState, FC, ReactElement, useEffect } from "react";
 
 import styles from "@/styles/Footer.module.css";
-import { DropDownProps, UserData } from "@/types/global";
+import { UserData } from "@/types/global";
 
 const DB_API_URI = "http://localhost:3001"; //	@todo centralize
 
-const DemoFooter = (props: DropDownProps): ReactElement => {
+type DemoFooterProps = {
+	handleChange: (event: string) => void;
+};
+
+const DemoFooter = (props: DemoFooterProps): ReactElement => {
 	const [userList, setUserList] = useState<UserData[]>([]);
 
 	useEffect(() => {

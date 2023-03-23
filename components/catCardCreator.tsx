@@ -15,6 +15,8 @@ const CatCardCreator: FC = (): ReactElement => {
 
 	const loadRandomCat = async () => {
 		try {
+			setCatImg("");
+
 			fetch(RANDOM_CAT_URL, {
 				headers: {
 					"x-api-key": CAT_API_KEY
@@ -38,7 +40,7 @@ const CatCardCreator: FC = (): ReactElement => {
 	return (
 		<div className={styles.creator}>
 			<input className={styles.catNameBox} type="text" value={catName} placeholder="Cat Name" onChange={e => setCatName(e.target.value)} />
-			<img src={catImg} alt={catName} className={styles.catImageBox} />
+			<img className={styles.catImageBox} src={catImg} alt={catName} />
 			<div className={styles.buttons}>
 				<button onClick={loadRandomCat}>Refresh</button>
 				<button onClick={saveCatToHerd}>Save</button>
