@@ -6,7 +6,7 @@ import { DropDownProps, UserData } from "@/types/global";
 const DB_API_URI = "http://localhost:3001"; //	@todo centralize
 
 const DemoFooter = (props: DropDownProps): ReactElement => {
-	const [userList, setUserList] = useState([]);
+	const [userList, setUserList] = useState<UserData[]>([]);
 
 	useEffect(() => {
 		loadUserList();
@@ -20,9 +20,6 @@ const DemoFooter = (props: DropDownProps): ReactElement => {
 					console.log("!!!!!!! ", data);
 					setUserList(data);
 				});
-
-			// _users = _users.json();
-			// console.log(_users);
 		} catch (err) {
 			console.error("DemoFooter : loadUserList : ", err);
 		}

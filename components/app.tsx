@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] });
 const _userID = 42;
 
 export default function App() {
-	const [userID, setUserID] = useState<String | Number>(_userID);
+	const [userID, setUserID] = useState<string | number>(_userID);
 
 	const endpoint = `${DB_API_URI}/users/${userID}`;
 
@@ -28,7 +28,7 @@ export default function App() {
 
 	if (!data) return <div>No data</div>;
 
-	const ChangeUser = (usrID: String) => {
+	const ChangeUser = (usrID: string) => {
 		setUserID(usrID);
 	};
 
