@@ -21,7 +21,6 @@ const DemoFooter = (props: DemoFooterProps): ReactElement => {
 			await fetch(DB_API_URI + "/users")
 				.then(resp => resp.json())
 				.then(data => {
-					console.log("!!!!!!! ", data);
 					setUserList(data);
 				});
 		} catch (err) {

@@ -2,6 +2,9 @@ import React, { useState, FC, ReactElement, useEffect } from "react";
 
 import styles from "@/styles/CatCardCreator.module.css";
 
+// import { Low } from "lowdb";
+// import { JSONFile } from "lowdb/node";
+
 const CAT_API_KEY = "live_tYTRfU3cmdp9RJX78Xx1JNDtt5jpOSMlz18ACdNkpw25R1j3vzzC1jsnWsKSv02e";
 const RANDOM_CAT_URL = "https://api.thecatapi.com/v1/images/search";
 
@@ -34,7 +37,9 @@ const CatCardCreator: FC = (): ReactElement => {
 	};
 
 	const saveCatToHerd = () => {
-		//
+		// const db = new Low(new JSONFile("db.json"));
+		// db.read();
+		// console.log("!!!!!!!!!! : ", db.data);
 	};
 
 	return (
