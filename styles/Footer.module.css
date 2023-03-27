@@ -1,17 +1,36 @@
 .footer {
-	margin: 40px;
-	background-color: white;
+	padding: 20px;
+	background-color: #c6c6c6;
 	border-style: solid;
 	border-color: black;
-	border-radius: 30px;
-	border-width: 2px;
-	width: 100em;
+	border-radius: 12px;
+	border-width: 1px;
+	/* width: 100%; */
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	display: flex;
+	align-items: center
 }
 
 .userDropDown {
-	margin: 40px;
+	/* margin: 40px; */
 	width: 200px;
 	height: 40px;
 	text-align: center;
 	font-size: large;
+}
+
+.buttonContainer {
+	flex: 1;
+	justify-content: flex-end;
+	align-items: flex-end;
+	display: flex;
+	gap: 20px;
+}
+
+.ftrButton {
+	padding: 10px;
+
 }

@@ -3,9 +3,9 @@
 }
 
 .herdBox {
-	padding: 10px;
+	padding: 40px;
 	margin-top: 10px;
 	border-style: solid;
 	border-radius: 10px;
-	border-color: blue;
+	border: 1px solid blue;
 }

@@ -44,7 +44,7 @@ export default function App() {
 					<div className={[styles.col].join(" ")}>
 						<CatCardCreator />
 					</div>
-					<div className="styles.col styles.herd">
+					<div className={styles.fixed2}>
 						<div className={styles.description}>{data.firstName}'s Herd</div>
 						<CatCardPanel herd={data.herd} />
 					</div>

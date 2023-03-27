@@ -3,8 +3,8 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	padding: 6rem;
-	min-height: 100vh;
+	/* padding: 6rem; */
+	/* min-height: 100vh; */
 }
 
 .description {
@@ -43,7 +43,9 @@
 	flex: 1;
 	flex-direction: row;
 	flex-wrap: wrap;
-	/* width: 100%; */
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .column {
@@ -61,4 +63,10 @@
 .herd {
 	flex: 1;
 	overflow: auto;
+}
+
+.fixed2 {
+	height: 80vh;
+	overflow: scroll;
+	width: 400px;
 }

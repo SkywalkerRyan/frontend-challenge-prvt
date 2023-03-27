@@ -8,7 +8,12 @@ import styles from "@/styles/CatCardCreator.module.css";
 const CAT_API_KEY = "live_tYTRfU3cmdp9RJX78Xx1JNDtt5jpOSMlz18ACdNkpw25R1j3vzzC1jsnWsKSv02e";
 const RANDOM_CAT_URL = "https://api.thecatapi.com/v1/images/search";
 
-const CatCardCreator: FC = (): ReactElement => {
+type CatCardCreatorProps = {
+	userId: string;
+	handleChange: (event: string) => void;
+};
+
+const CatCardCreator = (props: CatCardCreatorProps): ReactElement => {
 	const [catName, setCatName] = useState<string>("");
 	const [catImg, setCatImg] = useState<string>("");
 
