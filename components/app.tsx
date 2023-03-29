@@ -45,7 +45,7 @@ export default function App() {
 						<CatCardCreator userId={userID} />
 					</div>
 					<div className={styles.fixed2}>
-						<div className={styles.description}>{data.firstName}'s Herd</div>
+						<div className={styles.description}>{data.firstName + "'"}s Herd</div>
 						<CatCardPanel herd={data.herd} />
 					</div>
 				</div>
