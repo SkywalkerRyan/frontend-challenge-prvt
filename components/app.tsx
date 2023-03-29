@@ -42,7 +42,7 @@ export default function App() {
 				</div>
 				<div className={styles.row}>
 					<div className={[styles.col].join(" ")}>
-						<CatCardCreator />
+						<CatCardCreator userId={userID} />
 					</div>
 					<div className={styles.fixed2}>
 						<div className={styles.description}>{data.firstName}'s Herd</div>
@@ -50,7 +50,7 @@ export default function App() {
 					</div>
 				</div>
 				<div className={styles.row}>
-					<DemoFooter handleChange={val => ChangeUser(val)} />
+					<DemoFooter userId={userID} handleChange={val => ChangeUser(val)} />
 				</div>
 			</div>
 		</>

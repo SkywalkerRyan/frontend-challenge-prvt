@@ -8,7 +8,7 @@ import { UserData } from "@/types/global";
 const DB_API_URI = "http://localhost:3001"; //	@todo centralize
 
 type DemoFooterProps = {
-	userId: string;
+	userId: string | number;
 	handleChange: (event: string) => void;
 };
 

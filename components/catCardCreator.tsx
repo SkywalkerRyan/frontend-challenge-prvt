@@ -9,8 +9,7 @@ const CAT_API_KEY = "live_tYTRfU3cmdp9RJX78Xx1JNDtt5jpOSMlz18ACdNkpw25R1j3vzzC1j
 const RANDOM_CAT_URL = "https://api.thecatapi.com/v1/images/search";
 
 type CatCardCreatorProps = {
-	userId: string;
-	handleChange: (event: string) => void;
+	userId: string | number;
 };
 
 const CatCardCreator = (props: CatCardCreatorProps): ReactElement => {
@@ -23,8 +22,6 @@ const CatCardCreator = (props: CatCardCreatorProps): ReactElement => {
 
 	const loadRandomCat = async () => {
 		try {
-			setCatImg("");
-
 			fetch(RANDOM_CAT_URL, {
 				headers: {
 					"x-api-key": CAT_API_KEY
