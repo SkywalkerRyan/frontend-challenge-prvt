@@ -14,7 +14,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			const { userId, point } = req.body;
 
 			const user = await objectData.users.map(function (_user: UserData) {
-				if (_user.id === userId) {
+				if (_user.id === parseInt(userId)) {
+					console.log("if");
 					_user.wallet += point;
 				}
 
@@ -25,7 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			const updatedData = JSON.stringify(objectData);
 			await fsPromises.writeFile(dataFilePath, updatedData);
 
-			res.status(200).json({ message: point + "Points earned." });
+			res.status(200).json({ message: point + " Points earned." });
 		} catch (err) {
 			console.error("dbPost : err : ", err);
 			res.status(500).json({ message: "Error storing data" });

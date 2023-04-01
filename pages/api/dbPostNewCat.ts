@@ -28,6 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 						breedId
 					};
 					_user.herd.push(new_cat);
+					_user.wallet -= CAT_PRICE;
 				}
 
 				return _user;
