@@ -49,6 +49,7 @@ const CatCardCreator = (props: CatCardCreatorProps): ReactElement => {
 	const saveCatToHerd = async () => {
 		try {
 			const new_cat = {
+				userId: props.userId,
 				nickname: catName,
 				imageID: catImgId,
 				imageURI: catImg,
@@ -63,13 +64,10 @@ const CatCardCreator = (props: CatCardCreatorProps): ReactElement => {
 				body: JSON.stringify(new_cat)
 			});
 			const data = await response.json();
-			console.log(data);
+			alert(data.message);
 		} catch (err) {
 			console.error("catCardCreator : saveCatToHerd : err : ", err);
 		}
-		// const db = new Low(new JSONFile("db.json"));
-		// db.read();
-		// console.log("!!!!!!!!!! : ", db.data);
 	};
 
 	return (
