@@ -6,6 +6,8 @@ import path from "path";
 const dataFilePath = path.join(process.cwd(), "/db.json");
 import { UserData } from "@/types/global";
 
+const CAT_PRICE = 100;
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method === "POST") {
 		try {
@@ -16,6 +18,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 			const user = await objectData.users.map(function (_user: UserData) {
 				if (_user.id === parseInt(userId)) {
+					if (_user.wallet < CAT_PRICE) throw Error("Not Enough points.");
+
 					const new_cat = {
 						nickname,
 						imageID,
@@ -35,9 +39,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			await fsPromises.writeFile(dataFilePath, updatedData);
 
 			res.status(200).json({ message: "Data stored successfully" });
-		} catch (err) {
+		} catch (err: any) {
 			console.error("dbPost : err : ", err);
-			res.status(500).json({ message: "Error storing data" });
+			if (err) {
+				res.status(500).json({ message: err.message });
+			} else {
+				res.status(500).json({ message: "Error storing data" });
+			}
 		}
 	}
 }

@@ -64,6 +64,9 @@ const CatCardCreator = (props: CatCardCreatorProps): ReactElement => {
 				body: JSON.stringify(new_cat)
 			});
 			const data = await response.json();
+
+			console.log("!!!!!!!!! data : ", data);
+
 			alert(data.message);
 		} catch (err) {
 			console.error("catCardCreator : saveCatToHerd : err : ", err);
