@@ -38,7 +38,6 @@ const CatCardCreator = (props: CatCardCreatorProps): ReactElement => {
 					return data.json();
 				})
 				.then(data => {
-					console.log("data : ", data);
 					setCatImg(data[0].url);
 					setCatImgId(data[0].id);
 				});
@@ -56,7 +55,7 @@ const CatCardCreator = (props: CatCardCreatorProps): ReactElement => {
 				breed: "Bengal",
 				breedId: "beng"
 			};
-			const response = await fetch("/api/dbPost", {
+			const response = await fetch("/api/dbPostNewCat", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"

@@ -27,7 +27,30 @@ const DemoFooter = (props: DemoFooterProps): ReactElement => {
 					setUserList(data);
 				});
 		} catch (err) {
-			console.error("DemoFooter : loadUserList : ", err);
+			console.error("DemoFooter : loadUserList : err : ", err);
+		}
+	};
+
+	const earnPoints = async (point: number) => {
+		try {
+			const body_data = {
+				userId: props.userId,
+				point
+			};
+
+			const response = await fetch("/api/dbPostEarnPoints", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(body_data)
+			});
+			const data = await response.json();
+
+			alert(data.message);
+			//
+		} catch (err) {
+			console.error("DemoFooter : earnPoints : err : ", err);
 		}
 	};
 
@@ -41,8 +64,12 @@ const DemoFooter = (props: DemoFooterProps): ReactElement => {
 				))}
 			</select>
 			<div className={styles.buttonContainer}>
-				<button className={styles.ftrButton}>Car Alignment</button>
-				<button className={styles.ftrButton}>Truck Alignment</button>
+				<button className={styles.ftrButton} onClick={() => earnPoints(10)}>
+					Car Alignment
+				</button>
+				<button className={styles.ftrButton} onClick={() => earnPoints(20)}>
+					Truck Alignment
+				</button>
 			</div>
 			{/* <img src="footerConcept.png" alt="footer concept" /> */}
 		</div>
